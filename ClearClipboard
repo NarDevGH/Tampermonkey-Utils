@@ -1,0 +1,18 @@
+// ==UserScript==
+// @name         ClearClipboard
+// @namespace    http://tampermonkey.net/
+// @version      0.1
+// @description  erase clipboard content
+// @author       You
+// @match        https://twitter.com/*
+// @icon         https://www.google.com/s2/favicons?domain=twitter.com
+// @grant        GM_setClipboard
+// @run-at       context-menu
+// ==/UserScript==
+
+(function() {
+    'use strict';
+
+     GM_setClipboard(null);
+     console.log('Clipboard: null')
+})();
