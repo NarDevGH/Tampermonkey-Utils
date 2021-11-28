@@ -1,0 +1,31 @@
+// ==UserScript==
+// @name         AddImg2CB
+// @namespace    http://*
+// @version      0.1
+// @description  try to take over the world!
+// @author       You
+// @match        https://twitter.com/*
+// @icon         https://www.google.com/s2/favicons?domain=twitter.com
+// @grant        GM_setClipboard
+// @run-at       context-menu
+// ==/UserScript==
+
+(function() {
+    'use strict';
+
+     var element = document.activeElement;
+     var image = element.getElementsByTagName('img')[0];
+
+     navigator.clipboard.readText().then(text => {
+         if(text != 'null')
+         {
+             GM_setClipboard(text+" \n "+image.src);
+             console.log("added url: "+image.src);
+         }else{
+             GM_setClipboard(image.src);
+             console.log("first url added: "+image.src);
+         }
+     });
+
+
+})();
